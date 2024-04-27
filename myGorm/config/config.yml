@@ -1,0 +1,12 @@
+App:
+  port: 3000
+  host: localhost
+  log_level: debug
+  log_file: /var/log/app.log
+
+Db:
+  host: localhost
+  port: 3307
+  user: root
+  password: Zxcv123.00
+  dbname: test

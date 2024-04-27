@@ -1,0 +1,18 @@
+App:
+  port: 3000
+  host: 0.0.0.0
+  log_level: debug
+  log_file: /var/log/app.log
+
+Database:
+  host: localhost
+  port: 5432
+  user: root
+  password: zxcv123.00
+  dbname: test
+
+Redis:
+  host: localhost
+  port: 6379
+  password: zxcv123.00
+  db: 0
