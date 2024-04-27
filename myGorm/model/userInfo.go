@@ -4,7 +4,7 @@ type BigIntID struct {
 	ID int64 `gorm:"primary_key"`
 }
 
-type User struct {
+type UserInfo struct {
 	BigIntID
 	//gorm.Model
 	Name     string
@@ -12,6 +12,6 @@ type User struct {
 	Password string
 }
 
-func (User) TableName() string {
+func (u UserInfo) TableName() string {
 	return "user_info"
 }

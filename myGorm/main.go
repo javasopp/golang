@@ -27,7 +27,45 @@ func main() {
 	//}
 	//
 	//userRepo := mapper.UserRepository{}
-	userRepository := model.RepositoryFactory[model.User](reflect.TypeOf(model.User{}))
-	fmt.Println(userRepository)
+	// 连接数据库
+	//db := model.GetDB()
+
+	// 创建User类型的GenericRepository实例
+	userRepository := model.RepositoryFactory[model.UserInfo](reflect.TypeOf(model.UserInfo{}))
+
+	// 示例操作：查询、创建、更新和删除用户
+	// 查询用户
+	user, err := userRepository.GetByID(1)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("User fetched: %+v\n", user)
+
+	// 创建用户
+	newUser := model.UserInfo{
+		// ... 设置新用户的字段 ...
+	}
+	err = userRepository.Create(newUser)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("User created: %+v\n", newUser)
+
+	// 更新用户
+	updatedUser := model.UserInfo{
+		// ... 设置要更新的用户字段 ...
+	}
+	err = userRepository.UpdateByID(1, updatedUser)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("User updated: %+v\n", updatedUser)
+
+	// 删除用户
+	err = userRepository.DeleteByID(1)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("User deleted")
 
 }
